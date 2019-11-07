@@ -47,9 +47,9 @@ class StudentRecords:
                 
          def merge_sort(self, records):
    
-        if len(records) == 1:
+        if len(records) == 0:
             return records
-     
+       mid = (int(round(len(records) / 2)))
         left_half = self.merge_sort(records[0: mid])
         right_half = self.merge_sort(records[mid: len(records)])
 
