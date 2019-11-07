@@ -44,6 +44,15 @@ class StudentRecords:
                 self.add()
             else selected_option == '2':
                 self.show_all_records()
+                
+         def merge_sort(self, records):
+   
+        if len(records) == 1:
+            return records
+     
+        left_half = self.merge_sort(records[0: mid])
+        right_half = self.merge_sort(records[mid: len(records)])
+
          
 
 def main():
