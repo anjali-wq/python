@@ -35,8 +35,39 @@ class StudentRecords:
                     
                     if not len(str(student_id)) == 8:
                 print('student_id must be 8 digits long')
-                # breaks loop and restarts loop
+           
                 continue
+          
+           
+            print('success! student_id: ' + str(student_id))
+            student_id_loop_active = False
+
+        while student_full_name_loop_active:
+            student_full_name = input('Enter full name > ')
+
+            if len(student_full_name) == 0:
+                print('Please enter a full name')
+                continue
+
+            print('student_full_name: ' + str(student_full_name))
+            student_full_name_loop_active = False
+
+        while student_course_number_loop_active:
+            student_course_number = input('Enter 7 digit course number > ')
+            if len(student_course_number) == 0:
+                print('Please enter a course number')
+                continue
+
+            if not len(str(student_course_number)) == 7:
+                print('Course number must be 7 digits long')
+                continue
+
+            try:
+                student_course_number = int(student_course_number)
+            except:
+                print('student_course_number must be a number with no decimal points')
+                continue          
+                    
                     
 
             print('student_course_number: ' + str(student_course_number))
