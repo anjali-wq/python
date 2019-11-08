@@ -68,7 +68,11 @@ class StudentRecords:
                 print('student_course_number must be a number with no decimal points')
                 continue          
                     
-                    
+                              new_student_array = [student_id, student_full_name, student_course_number]
+            self.records.append(new_student_array)
+            print('Successfully added: ' + str(new_student_array))
+            student_course_number_loop_active = False
+        self.show_menu()
 
             print('student_course_number: ' + str(student_course_number))
 
