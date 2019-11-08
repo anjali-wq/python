@@ -89,6 +89,28 @@ class StudentRecords:
         offset_left = 0
         offset_right = 0
 
+        while offset_left < len(left_half) and offset_right < len(right_half):
+            a = left_half[offset_left]
+            b = right_half[offset_right]
+
+            if a <= b:
+              sorted_records.append(a)
+              offset_left += 1
+            else:
+              sorted_records.append(b)
+              offset_right += 1
+
+        # while left_half has elements
+        while offset_left < len(left_half):
+            sorted_records.append(left_half[offset_right])
+            offset_left += 1
+
+        # while right_half has elements
+        while offset_right < len(right_half):
+            sorted_records.append(right_half[offset_left])
+            offset_right += 1
+
+        return sorted_records
         
 
             print('student_course_number: ' + str(student_course_number))
