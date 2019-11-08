@@ -110,7 +110,13 @@ class StudentRecords:
             sorted_records.append(right_half[offset_right])
             offset_right += 1
 
-        
+         return sorted_records
+    
+    def show_all_records(self):
+            print('** Showing all records **')
+            print(self.merge_sort(self.records))
+            self.show_menu()
+            
 
             print('student_course_number: ' + str(student_course_number))
 
