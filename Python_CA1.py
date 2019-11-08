@@ -26,6 +26,18 @@ class StudentRecords:
   if not len(str(student_course_number)) == 7:
                 print('Course number must be 7 digits long')
                 continue
+            
+            try:
+                student_course_number=int(student_course_number)
+                except:
+                    print('student_course_number must be a number with no decimal points')
+                    continue
+                    
+                    if not len(str(student_id)) == 8:
+                print('student_id must be 8 digits long')
+                # breaks loop and restarts loop
+                continue
+                    
 
             print('student_course_number: ' + str(student_course_number))
 
@@ -45,13 +57,7 @@ class StudentRecords:
             else selected_option == '2':
                 self.show_all_records()
                 
-         def merge_sort(self, records):
-   
-        if len(records) == 1:
-            return records
-       mid = (int(round(len(records) / 2)))
-        left_half = self.merge_sort(records[0: mid])
-        right_half = self.merge_sort(records[mid: len(records)])
+        
 
          
 
