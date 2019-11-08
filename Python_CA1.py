@@ -73,6 +73,19 @@ class StudentRecords:
             print('Successfully added: ' + str(new_student_array))
             student_course_number_loop_active = False
         self.show_menu()
+        
+        
+        
+    def merge_sort(self, records):
+      
+        if len(records) == 1:
+            return records
+        # The records array is recursively broken down until the array only consists of 1 element
+        mid = (str(round(len(records) / 2)))
+        left_half = self.merge_sort(records[0: mid])
+        right_half = self.merge_sort(records[mid: len(records)])
+
+        
 
             print('student_course_number: ' + str(student_course_number))
 
