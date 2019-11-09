@@ -130,7 +130,18 @@ class StudentRecords:
             self.show_menu()
   
             
-            
+               def end_program(self):
+        confirm_loop_active = True
+        while confirm_loop_active:
+            confirm = input('Are you sure you want to exit? This will reset the data. y/n')
+            if confirm == 'y':
+                print('Bye')
+                confirm_loop_active = False
+            elif confirm == 'n':
+                confirm_loop_active = False
+                self.show_menu()
+            else: 
+                print('Please type either y for yes or n for no')
             
             
             
@@ -139,7 +150,6 @@ class StudentRecords:
             
             
 
-            print('student_course_number: ' + str(student_course_number))
 
     def show_menu(self):
      
