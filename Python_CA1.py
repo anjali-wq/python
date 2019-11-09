@@ -152,12 +152,16 @@ class StudentRecords:
 
 
     def show_menu(self):
+         selected_option = 0
+        print('*' * 100)
+        print('Welcome to Student Records')
      
         
         while selected_option != '1' and selected_option != '2'  and selected_option != '3':
             print('Press 1 to execute the retrieve() function')
             print('Press 2 to execute the add() function')
             print('Press 3 to execute the show_all_records() function')
+             print('Press 4 to end the program')
            
             selected_option = input('Enter your option > ')
             print('You have selected: ' + selected_option)
@@ -169,7 +173,7 @@ class StudentRecords:
                 self.show_all_records()
                
          else:
-                print('*** Please select either 1,2 or 3')
+                print('*** Please select either 1,2 or 3 or 4***')
 
          
 
