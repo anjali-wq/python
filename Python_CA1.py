@@ -5,6 +5,7 @@ class StudentRecords:
         def retrieve(self):
                start_time = time.time()
         sorted_records = self.merge_sort(self.records)
+              print("--- Merge sort completed in %s seconds ---" % (time.time() - start_time))
              print('deleting student with lowest student number: ' + str(sorted_records[0]))
        
         sorted_records.pop(0)
@@ -123,10 +124,7 @@ class StudentRecords:
 
          return sorted_records
     
-    def show_all_records(self):
-            print('** Showing all records **')
-            print(self.merge_sort(self.records))
-            self.show_menu()
+  
             
             
             
