@@ -124,6 +124,10 @@ class StudentRecords:
 
          return sorted_records
     
+     def show_all_records(self):
+            print('** Showing all records **')
+            print(self.merge_sort(self.records))
+            self.show_menu()
   
             
             
@@ -140,20 +144,22 @@ class StudentRecords:
     def show_menu(self):
      
         
-        while selected_option != '1' and selected_option != '2':
-          
-            print('Press 1 to execute the add() function')
-            print('Press 2 to execute the show_all_records() function')
+        while selected_option != '1' and selected_option != '2'  and selected_option != '3':
+            print('Press 1 to execute the retrieve() function')
+            print('Press 2 to execute the add() function')
+            print('Press 3 to execute the show_all_records() function')
            
             selected_option = input('Enter your option > ')
             print('You have selected: ' + selected_option)
             if selected_option == '1':
-            
+             self.retrieve()
+            elif selected_option == '2':
                 self.add()
-            else selected_option == '2':
+            elif selected_option == '3':
                 self.show_all_records()
-                
-        
+               
+         else:
+                print('*** Please select either 1,2 or 3')
 
          
 
