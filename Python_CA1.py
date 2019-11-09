@@ -1,6 +1,17 @@
 class StudentRecords:
     def __init__(self, records):
         self.records = records
+        
+        def retrieve(self):
+               start_time = time.time()
+        sorted_records = self.merge_sort(self.records)
+             print('deleting student with lowest student number: ' + str(sorted_records[0]))
+       
+        sorted_records.pop(0)
+        self.records = sorted_records
+        print('Successfully deleted student')
+        self.show_menu()
+        
 
    def add(self):
         student_id = 0
@@ -116,6 +127,14 @@ class StudentRecords:
             print('** Showing all records **')
             print(self.merge_sort(self.records))
             self.show_menu()
+            
+            
+            
+            
+            
+            
+            
+            
             
 
             print('student_course_number: ' + str(student_course_number))
