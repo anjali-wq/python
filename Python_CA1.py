@@ -1,21 +1,28 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import time
+import pdb
+
 class StudentRecords:
-    def __init__(self, records):
+        def __init__(self, records):
         self.records = records
         
         def retrieve(self):
                start_time = time.time()
         sorted_records = self.merge_sort(self.records)
-              print("--- Merge sort completed in %s seconds ---" % (time.time() - start_time))
+             print("--- Merge sort completed in %s seconds ---" % (time.time() - start_time))
              print('deleting student with lowest student number: ' + str(sorted_records[0]))
-       
+       # pop deletes element of array
         sorted_records.pop(0)
+        # This is like saving data or keeping data in sync
         self.records = sorted_records
         print('Successfully deleted student')
         self.show_menu()
         
 
-   def add(self):
+       def add(self):
         student_id = 0
+         # created a variable called student_id_loop_active and defined it as true
         student_id_loop_active = True
 
         student_full_name = ''
@@ -28,12 +35,41 @@ class StudentRecords:
             student_id = input('Enter your 8 digit student_id > ')
             # gets array of existing_ids
             existing_ids = [i[0] for i in self.records]
+              try:
+                student_id = int(student_id)
+            except:
+                print('student_id must be a number with no decimal points')
+                               # breaks loop and restarts loop
+                continue
 
- while student_course_number_loop_active:
+if not len(str(student_id)) == 8:
+                print('student_id must be 8 digits long')
+                # breaks loop and restarts loop
+                continue
+
+            if int(student_id) in existing_ids:
+                print('That id already exists')
+                # breaks loop and restarts loop
+                continue
+
+            print('success! student_id: ' + str(student_id))
+            student_id_loop_active = False
+
+        while student_full_name_loop_active:
+            student_full_name = input('Enter full name > ')
+
+            if len(student_full_name) == 0:
+                print('Please enter a full name')
+                continue
+
+            print('student_full_name: ' + str(student_full_name))
+            student_full_name_loop_active = False
+            
+           while student_course_number_loop_active:
             student_course_number = input('Enter 7 digit course number > ')
             if len(student_course_number) == 0:
                 print('Please enter a course number')
-                continue
+                continue  
 
   if not len(str(student_course_number)) == 7:
                 print('Course number must be 7 digits long')
@@ -50,46 +86,17 @@ class StudentRecords:
            
                 continue
           
-           
-            print('success! student_id: ' + str(student_id))
-            student_id_loop_active = False
+             print('student_course_number: ' + str(student_course_number))
 
-        while student_full_name_loop_active:
-            student_full_name = input('Enter full name > ')
-
-            if len(student_full_name) == 0:
-                print('Please enter a full name')
-                continue
-
-            print('student_full_name: ' + str(student_full_name))
-            student_full_name_loop_active = False
-
-        while student_course_number_loop_active:
-            student_course_number = input('Enter 7 digit course number > ')
-            if len(student_course_number) == 0:
-                print('Please enter a course number')
-                continue
-
-            if not len(str(student_course_number)) == 7:
-                print('Course number must be 7 digits long')
-                continue
-
-            try:
-                student_course_number = int(student_course_number)
-            except:
-                print('student_course_number must be a number with no decimal points')
-                continue          
-                    
-                              new_student_array = [student_id, student_full_name, student_course_number]
+            new_student_array = [student_id, student_full_name, student_course_number]
             self.records.append(new_student_array)
             print('Successfully added: ' + str(new_student_array))
             student_course_number_loop_active = False
         self.show_menu()
-        
-        
-        
-    def merge_sort(self, records):
-      
+            
+ def merge_sort(self, records):
+      # Divide section
+        # This is base case. This break recursion and prevents infinite stack trace error
         if len(records) == 1:
             return records
         # The records array is recursively broken down until the array only consists of 1 element
@@ -97,10 +104,11 @@ class StudentRecords:
         left_half = self.merge_sort(records[0: mid])
         right_half = self.merge_sort(records[mid: len(records)])
         
+           #conquer section
           sorted_records = []
         offset_left = 0
         offset_right = 0
-
+  # while both left_half and right_half have elements
         while offset_left < len(left_half) and offset_right < len(right_half):
             a = left_half[offset_left]
             b = right_half[offset_right]
@@ -129,8 +137,7 @@ class StudentRecords:
             print(self.merge_sort(self.records))
             self.show_menu()
   
-            
-               def end_program(self):
+def end_program(self):
         confirm_loop_active = True
         while confirm_loop_active:
             confirm = input('Are you sure you want to exit? This will reset the data. y/n')
@@ -143,21 +150,11 @@ class StudentRecords:
             else: 
                 print('Please type either y for yes or n for no')
             
-            
-            
-            
-            
-            
-            
-
-
-    def show_menu(self):
+  def show_menu(self):
          selected_option = 0
         print('*' * 100)
         print('Welcome to Student Records')
-     
-        
-        while selected_option != '1' and selected_option != '2'  and selected_option != '3':
+      while selected_option != '1' and selected_option != '2'  and selected_option != '3':
             print('Press 1 to execute the retrieve() function')
             print('Press 2 to execute the add() function')
             print('Press 3 to execute the show_all_records() function')
@@ -190,3 +187,7 @@ def main():
         [99999999, 'I. McStudent', 'D1234567']
 ])
     s.show_menu()
+    
+    if __name__ == "__main__":
+    """ This is executed when run from the command line """
+    main()
