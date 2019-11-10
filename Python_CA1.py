@@ -171,14 +171,14 @@ class StudentRecords:
 
 def main():
     s = StudentRecords([
-        [7, 'A. McStudent', 'A1234567'],
-        [9, 'B. McStudent', 'B1234567'],
-        [2, 'C. McStudent', 'C1234567'],
-        [1, 'D. McStudent', 'E1234567'],
-        [3, 'E. McStudent', 'F1234567'],
-        [8, 'F. McStudent', 'G1234567'],
-        [5, 'G. McStudent', 'H1234567'],
-        [6, 'H. McStudent', 'I1234567'],
+        [7, 'A. John', 'A1234567'],
+        [8, 'B. david', 'B1234567'],
+        [2, 'C. Live', 'C1234567'],
+        [1, 'D. Kevin', 'E1234567'],
+        [3, 'E. Steward', 'F1234567'],
+        [4, 'F. Garry', 'G1234567'],
+        [5, 'G. Mike', 'H1234567'],
+        [6, 'H. Loren', 'I1234567'],
         [11111111, 'I. McStudent', 'D1234567']
 ])
     s.show_menu()
