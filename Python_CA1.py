@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+
 import time
 import pdb
 
@@ -7,21 +6,22 @@ class StudentRecords:
     def __init__(self, records):
         self.records = records
 
+    #sort them and get the lowest student no and removes it from collection
     def retrieve(self):
         start_time = time.time()
         sorted_records = self.merge_sort(self.records)
         print("--- Merge sort completed in %s seconds ---" % (time.time() - start_time))
-
+      # Student with lowest no is student at first student record. This will show user which is lowest
         print('deleting student with lowest student number: ' + str(sorted_records[0]))
         # pop deletes element of array
         sorted_records.pop(0)
-        # This is like saving data or keeping data in sync
+        # This is like saving data or keeping data in sync (Because you have sorted, the first element in array is going to be lowest)Taking sorted records from self records.self recrd isn't aware of the deletion so to sync it properly.
         self.records = sorted_records
         print('Successfully deleted student')
         self.show_menu()
 
     def add(self):
-# initialized the variable
+# initialized the variable. This has validation. It takes student id, student full name, course no etc..we want from user
         student_id = 0
       # created a variable called student_id_loop_active and defined it as true
         student_id_loop_active = True
